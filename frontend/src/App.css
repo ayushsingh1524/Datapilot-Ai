@@ -1,0 +1,405 @@
+/* ==============================
+   Global
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0f1117;
+  color: #f5f7fa;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* ==============================
+   Dashboard
+================================ */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 32px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* ==============================
+   Header
+================================ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding: 24px 28px;
+  background: #171a23;
+  border: 1px solid #272b36;
+  border-radius: 16px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.header p {
+  margin: 7px 0 0;
+  color: #9299a8;
+  font-size: 15px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #151d19;
+  border: 1px solid #263c32;
+  color: #8ed4ad;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+
+
+/* ==============================
+   Statistics
+================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 24px;
+  background: #171a23;
+  border: 1px solid #272b36;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #3a4050;
+}
+
+.stat-card span {
+  display: block;
+  color: #8f96a6;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.anomaly-card {
+  border-color: #3d3032;
+}
+
+
+/* ==============================
+   Content Grid
+================================ */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* ==============================
+   Panels
+================================ */
+
+.panel,
+.chat-panel {
+  background: #171a23;
+  border: 1px solid #272b36;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #222631;
+  border: 1px solid #303543;
+  color: #aab1bf;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* ==============================
+   Anomaly Detection
+================================ */
+
+.anomaly {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #12151c;
+  border: 1px solid #292d38;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.anomaly strong {
+  font-size: 15px;
+}
+
+.anomaly p {
+  margin: 5px 0 0;
+  color: #8f96a6;
+  font-size: 14px;
+}
+
+.explanation {
+  margin-top: 18px;
+  padding: 16px;
+  background: #12151c;
+  border-left: 3px solid #777f91;
+  border-radius: 8px;
+}
+
+.explanation strong {
+  font-size: 14px;
+}
+
+.explanation p {
+  margin: 8px 0 0;
+  color: #a5acba;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+
+/* ==============================
+   Platform Status
+================================ */
+
+.pipeline {
+  display: grid;
+  gap: 12px;
+}
+
+.pipeline div {
+  padding: 11px 14px;
+  background: #12151c;
+  border: 1px solid #252a34;
+  border-radius: 9px;
+  color: #aeb5c3;
+  font-size: 14px;
+}
+
+
+/* ==============================
+   Charts
+================================ */
+
+.chart-container {
+  width: 100%;
+  height: 320px;
+}
+
+
+/* ==============================
+   AI Chat
+================================ */
+
+.chat-panel {
+  margin-top: 4px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 12px;
+}
+
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  background: #10131a;
+  color: #f5f7fa;
+  border: 1px solid #2a2f3b;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input input::placeholder {
+  color: #6f7685;
+}
+
+.chat-input input:focus {
+  border-color: #555d6e;
+}
+
+.chat-input button {
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: #e9edf3;
+  color: #11141a;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.chat-input button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ==============================
+   Chat Response
+================================ */
+
+.chat-response {
+  margin-top: 20px;
+  padding: 18px;
+  background: #11141b;
+  border: 1px solid #282d38;
+  border-radius: 12px;
+}
+
+.chat-response p {
+  color: #b0b7c4;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.chat-response pre {
+  overflow-x: auto;
+  margin-top: 10px;
+  padding: 16px;
+  background: #0b0d12;
+  border: 1px solid #242934;
+  border-radius: 8px;
+  color: #b9c1cf;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* ==============================
+   Recharts
+================================ */
+
+.recharts-text {
+  fill: #858c9b;
+  font-size: 12px;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #292e39;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+
+/* ==============================
+   Responsive
+================================ */
+
+@media (max-width: 1000px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .header h1 {
+    font-size: 27px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .chat-panel {
+    padding: 18px;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+
+  .chat-input button {
+    height: 44px;
+  }
+}

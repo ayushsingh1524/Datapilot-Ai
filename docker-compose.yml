@@ -1,0 +1,53 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: datapilot-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: datapilot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5436:5432"
+
+    volumes:
+      - datapilot_postgres_data:/var/lib/postgresql/data
+
+  api:
+    image: datapilot-api:latest
+    container_name: datapilot-api
+    restart: unless-stopped
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: datapilot
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+
+    ports:
+      - "8000:8000"
+    
+    volumes:
+      - ./data:/app/data
+
+    depends_on:
+      - postgres
+
+  frontend:
+    image: datapilot-frontend:latest
+    container_name: datapilot-frontend
+    restart: unless-stopped
+
+    ports:
+      - "5174:80"
+
+    depends_on:
+      - api
+
+volumes:
+  datapilot_postgres_data:
